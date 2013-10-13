@@ -17,4 +17,6 @@ urlpatterns = patterns('',
     (r'^signup$', SignupView.as_view()),
     #(r'^accounts/', include('allauth.urls')),
     (r'^admin/', include(admin.site.urls)),
+    (r'^site_media/(?P<path>.*)$',
+     'django.views.static.serve',{'document_root':site_media}),
 )
