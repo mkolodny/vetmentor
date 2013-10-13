@@ -1,9 +1,21 @@
-<!doctype html>
-<html>
-<head>
-  <title>Vet Mentor</title>
-</head>
-<body>
-  Welcome vets and friends of vets!
-</body>
-</html
+{% extends "base.html" %}
+{% block title %}One-on-One Guidance{% endblock %}
+{% block head %}{% endblock %}
+
+{% block content %}
+    <div style="margin: 20% auto; width: 500px; 
+        vertical-align: middle; border: 1px dotted black;">
+        <form action="" method="get"
+            style="text-align: center; vertical-align: middle;">
+            <h3>Peer to peer guidance for all your needs adapting
+            from military to civilian life.</h3>
+            I'm searching for a 
+            <a href="/" class="mentor">Mentor</a> |
+            <a href="/" class="mentee">Mentee</a>
+            near
+            <input type="text" name="q" placeholder="New York, NY">
+            <input type="submit" value="Go"><br />
+            <a href="/" class="nopref">I'd prefer to talk to anyone.</a>
+        </form>
+    </div>
+{% endblock %}

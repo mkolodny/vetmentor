@@ -1,0 +1,96 @@
+@CHARSET "ISO-8859-1";
+
+/*
+input{
+	display:block;
+}
+*/
+ 
+/* links */
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline ; 
+}
+/*
+a:visited {
+    color: blue;
+}
+*/
+
+#header {
+    position:relative;
+    height:50px;
+    background: #F0F0F0;
+}
+#logo {
+    margin:0;
+    position:absolute;
+    top:10px;
+    left:30px;
+    color: #66CCCC;
+}
+
+#nav {
+    position:absolute;
+    margin:0;
+    bottom:0;
+    right:0;
+    /*font-family:"Trebuchet MS",sans-serif;*/
+    white-space:nowrap;
+}
+
+/* 
+ #nav{
+ background-color: chocolate;
+ display:block;
+ text-align:right;
+ }
+ */
+
+#nav li {
+    display:block;
+    float:left;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+#nav a {
+    display:block;
+    float:left;
+    padding:16px 16px 15px 16px;
+    color: black;
+    /*background:#092e20;*/
+}
+
+#nav a:hover {
+    background: orange;
+    color: black;
+    text-decoration: none;
+}
+
+ul.landinglinks {
+    display: inline;
+    float: right;
+}
+
+
+/* tables */
+
+table
+{
+    border-collapse:collapse;
+}
+
+#user_list tr {
+    border: 1px solid black;
+}
+#user_list td {
+    padding:10px;
+}
+
+

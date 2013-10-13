@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vet Mentor | {% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="/site_media/style.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+        <a href="/"><h1 id="logo">Vet Mentor</h1></a>
+    <ul id="nav">
+        {% block links %}{% endblock %}
+        <li><a href="/">About</a></li>
+        <li><a href="/">Browse</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="/user/{{ user.username }}">{{user.username}}'s
+                Profile</a></li>
+            <li><a href="/">Logout</a></li>
+        {% else %}
+            <li><a href="/">Login</a></li>
+            <li><a href="/">Sign Up</a></li>
+            <li>
+                <form action="" method="get"
+                    style="vertical-align: bottom; margin: 11% 0;">
+                    <input type="text" name="q" placeholder="Find People">
+                </form>
+            </li>
+        {% endif %}
+    </ul>
+    
+</div>
+    <h1>{% block head %}{% endblock %}</h1>
+    {% block content %}{% endblock %}
+</body>
+</html>
