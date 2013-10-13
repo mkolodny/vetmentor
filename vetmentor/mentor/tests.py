@@ -1,16 +1,14 @@
-"""
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
+from __future__ import unicode_literals
 
-Replace this with more appropriate tests for your application.
-"""
-
-from django.test import TestCase
+from django.test import TestCase, Client
 
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
+class LandingTest(TestCase):
+    def setUp(self):
+        self.c = Client()
+
+    def test_get_landing(self):
+        """Show the landing page.
         """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.assertEqual(1 + 1, 2)
+        response = self.c.get('/')
+        self.assertTemplateUsed(response, 'landing.html')
