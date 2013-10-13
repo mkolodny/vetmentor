@@ -5,7 +5,6 @@ from django.contrib import admin
 
 admin.autodiscover()
 
-
 site_media = os.path.join(
     os.path.dirname(__file__),'site_media'
 )
