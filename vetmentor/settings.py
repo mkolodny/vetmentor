@@ -18,6 +18,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': dj_database_url.config()
 }
+DATABASES['default']['TEST_NAME'] = 'test_it'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -81,7 +82,7 @@ TEMPLATE_DIRS = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
+    'vetmentor.auth.UserBackend',
 
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',

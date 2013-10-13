@@ -1,6 +1,6 @@
 import os.path
 from django.conf.urls import patterns, include
-from mentor.views import LandingView
+from mentor.views import LandingView, SignupView
 from django.contrib import admin
 
 admin.autodiscover()
