@@ -1,11 +1,36 @@
 from __future__ import unicode_literals
 
-from django.views.generic import View
-from django.shortcuts import render
 from django.contrib import auth
+from django.core.mail import send_mail      # for contact form
+from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.shortcuts import render
+from django.views.generic import View
+
 from vetmentor.mentor.models import User
 from vetmentor.mentor import forms
 
+
+def contact(request):
+    # contact form view
+    if request.method == 'POST':
+        form = forms.ContactForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            send_mail(
+                      cd['subject'],
+                      cd['message'],
+                      cd.get('email', 'noreply@example.com'),
+                      [cd.get('recipient', 'downdigitalco@gmail.com')],
+                      )
+            return HttpResponseRedirect('/contact/thanks/')
+    else:
+        form = forms.ContactForm(
+                           initial={'subject': 'Will you be my mentor?'}
+                           )
+    return render(request, 'contact_form.html', {'form': form})
+
+def thanks(request):
+    return HttpResponse('Thanks for contacting us.')
 
 class LandingView(View):
     """

@@ -129,3 +129,13 @@ LOGGING = {
         },
     }
 }
+
+EMAIL_USE_TLS = True        # security
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#DEFAULT_FROM_EMAIL = \
+#'Vet Mentor <vetmentor@gmail.com>'
+EMAIL_HOST = 'smtp.gmail.com'        #'smtp.gmail.com'       #'mail.yourisp.com'
+EMAIL_HOST_USER = 'vetmentor@gmail.com'   #'username+mail.yourisp.com'
+EMAIL_HOST_PASSWORD = 'feast20131013'
+EMAIL_PORT = 587
+

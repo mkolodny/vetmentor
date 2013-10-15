@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Contact Form</title>
+        
+        <style type="text/css">
+            .field {
+                vertical-align: text-top;
+            }
+            ul.errorlist {
+                margin: 0;
+                padding: 0;
+            }
+            .errorlist li {
+                background-color: red;
+                color: white;
+                display: block;
+                font-size: 10px;
+                margin: 0 0 3px;
+                padding: 4px 5px;
+            }
+            </style>
+    </head>
+    <body>
+        <h1>Contact Form</h1>
+        
+        {% if form.errors %}
+        <p style="color: red;">
+        Please correct the error{{ form.errors|pluralize }} below.
+        </p>
+        {% endif %}
+        
+        <form action="" method="post"> {% csrf_token %}
+            <div class="field">
+                {{ form.recipient.errors }}
+                <label for="id_recipient">To:</label>
+                {{ form.recipient }}
+            </div>
+            <div class="field">
+                {{ form.email.errors }}
+                <label for="id_email">From:</label>
+                {{ form.email }}
+            </div>
+            <div class="field">
+                {{ form.subject.errors }}
+                <label for="id_subject">Subject:</label>
+                {{ form.subject }}
+            </div>
+            <div class="field{% if form.message.errors %} errors{% endif %}">
+                {% if form.message.errors %}
+                <ul class="errorlist">
+                    {% for error in form.message.errors %}
+                    <li ><strong>{{ error }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <label for="id_message">Message:</label>
+                {{ form.message }}
+            </div>
+            <input type="submit" value="Submit">
+                </form>
+    </body>
+</html>
